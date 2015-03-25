@@ -7,16 +7,24 @@
 //
 
 #import "VRBAppDelegate.h"
+#import "VRBViewController.h"
+#import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface VRBAppDelegate ()
-
 @end
 
 @implementation VRBAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *rootViewController = [[VRBViewController alloc] init];
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     return YES;
 }
 
