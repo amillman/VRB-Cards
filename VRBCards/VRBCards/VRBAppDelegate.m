@@ -7,7 +7,7 @@
 //
 
 #import "VRBAppDelegate.h"
-#import "VRBViewController.h"
+#import "VRBMainViewController.h"
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIViewController *rootViewController = [[VRBViewController alloc] init];
+    UIViewController *rootViewController = [[VRBMainViewController alloc] init];
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     

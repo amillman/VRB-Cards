@@ -1,18 +1,18 @@
 //
-//  VRBViewController.m
+//  VRBMainViewController.m
 //  VRBCards
 //
 //  Created by Andrew on 3/24/15.
 //  Copyright (c) 2015 Andrew Millman. All rights reserved.
 //
 
-#import "VRBViewController.h"
+#import "VRBMainViewController.h"
 
-@interface VRBViewController ()
+@interface VRBMainViewController ()
 
 @end
 
-@implementation VRBViewController
+@implementation VRBMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

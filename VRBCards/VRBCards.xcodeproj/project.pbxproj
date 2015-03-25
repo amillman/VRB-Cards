@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		2782505A1AC28947000F2E43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 278250591AC28947000F2E43 /* main.m */; };
 		2782505D1AC28947000F2E43 /* VRBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782505C1AC28947000F2E43 /* VRBAppDelegate.m */; };
-		278250601AC28947000F2E43 /* VRBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782505F1AC28947000F2E43 /* VRBViewController.m */; };
+		278250601AC28947000F2E43 /* VRBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782505F1AC28947000F2E43 /* VRBMainViewController.m */; };
 		278250651AC28947000F2E43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278250641AC28947000F2E43 /* Images.xcassets */; };
 		278250741AC28947000F2E43 /* VRBCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 278250731AC28947000F2E43 /* VRBCardsTests.m */; };
+		2782507F1AC29461000F2E43 /* VRBMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782507E1AC29461000F2E43 /* VRBMainView.m */; };
 		A0DA67F32DF22636EB2DD9C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49040735A64E2B8EC7391A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -31,12 +32,14 @@
 		278250591AC28947000F2E43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2782505B1AC28947000F2E43 /* VRBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRBAppDelegate.h; sourceTree = "<group>"; };
 		2782505C1AC28947000F2E43 /* VRBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VRBAppDelegate.m; sourceTree = "<group>"; };
-		2782505E1AC28947000F2E43 /* VRBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRBViewController.h; sourceTree = "<group>"; };
-		2782505F1AC28947000F2E43 /* VRBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VRBViewController.m; sourceTree = "<group>"; };
+		2782505E1AC28947000F2E43 /* VRBMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRBMainViewController.h; sourceTree = "<group>"; };
+		2782505F1AC28947000F2E43 /* VRBMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VRBMainViewController.m; sourceTree = "<group>"; };
 		278250641AC28947000F2E43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2782506D1AC28947000F2E43 /* VRBCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VRBCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		278250721AC28947000F2E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		278250731AC28947000F2E43 /* VRBCardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VRBCardsTests.m; sourceTree = "<group>"; };
+		2782507D1AC29461000F2E43 /* VRBMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBMainView.h; sourceTree = "<group>"; };
+		2782507E1AC29461000F2E43 /* VRBMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBMainView.m; sourceTree = "<group>"; };
 		6A49040735A64E2B8EC7391A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA877D925E67AF1C74E47E04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4E910FD6FE55162B1C4C69E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,8 +98,10 @@
 			children = (
 				2782505B1AC28947000F2E43 /* VRBAppDelegate.h */,
 				2782505C1AC28947000F2E43 /* VRBAppDelegate.m */,
-				2782505E1AC28947000F2E43 /* VRBViewController.h */,
-				2782505F1AC28947000F2E43 /* VRBViewController.m */,
+				2782505E1AC28947000F2E43 /* VRBMainViewController.h */,
+				2782505F1AC28947000F2E43 /* VRBMainViewController.m */,
+				2782507D1AC29461000F2E43 /* VRBMainView.h */,
+				2782507E1AC29461000F2E43 /* VRBMainView.m */,
 				278250641AC28947000F2E43 /* Images.xcassets */,
 				278250571AC28947000F2E43 /* Supporting Files */,
 			);
@@ -270,7 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278250601AC28947000F2E43 /* VRBViewController.m in Sources */,
+				278250601AC28947000F2E43 /* VRBMainViewController.m in Sources */,
+				2782507F1AC29461000F2E43 /* VRBMainView.m in Sources */,
 				2782505D1AC28947000F2E43 /* VRBAppDelegate.m in Sources */,
 				2782505A1AC28947000F2E43 /* main.m in Sources */,
 			);
