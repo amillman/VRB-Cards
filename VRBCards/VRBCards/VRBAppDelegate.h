@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VRBAppDelegate.h
 //  VRBCards
 //
 //  Created by Andrew on 3/24/15.
@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface VRBAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end
