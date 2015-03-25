@@ -10,4 +10,15 @@
 
 @implementation VRBCard
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{};
+}
+
++ (Class)classFromCardType:(NSString *)cardType {
+    cardType = [[cardType capitalizedString] stringByAppendingString:@"Card"];
+    NSString *CLASS_PREFIX = @"VRB";
+    NSString *classNameString = [CLASS_PREFIX stringByAppendingString:cardType];
+    return NSClassFromString(classNameString);
+}
+
 @end

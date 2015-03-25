@@ -7,9 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Mantle.h"
 
-@interface VRBCard : NSObject
+@interface VRBCard : MTLModel <MTLJSONSerializing>
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *type;
 @property (nonatomic) NSURL *imageURL;
+
+
+/**
+ Returns the Class of a card based on its NSString type.
+    e.g. @"place" returns VRBPlaceCard
+ 
+ @param cardType The NSString of a card's type
+ 
+ */
+
++ (Class)classFromCardType:(NSString *)cardType;
+
+
 @end
