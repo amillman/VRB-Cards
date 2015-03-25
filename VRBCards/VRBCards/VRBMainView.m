@@ -7,15 +7,39 @@
 //
 
 #import "VRBMainView.h"
+#import "Masonry.h"
+#import "VRBConstants.h"
 
 @implementation VRBMainView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
+        [self _createSubviews];
+        [self setNeedsUpdateConstraints];
     }
     return self;
+}
+
+- (void)_createSubviews {
+    
+    _cardsTableView = [[UITableView alloc] init];
+    _cardsTableView.separatorColor = [UIColor clearColor];
+    _cardsTableView.tableHeaderView = [[UIView alloc] init];
+    
+}
+
+- (void)updateConstraints {
+    
+    [_cardsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(NAVBAR_HEIGHT));
+        make.leading.equalTo(@0);
+        make.trailing.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+    
+    [super updateConstraints];
 }
 
 @end

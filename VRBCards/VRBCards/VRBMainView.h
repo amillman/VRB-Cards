@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VRBMainView : UIView
-
+@property (nonatomic) UITableView *cardsTableView;
 @end

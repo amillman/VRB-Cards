@@ -46,8 +46,10 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
         
         for (NSDictionary *cardJSON in cardsArrayJSON) {
             Class cardClass = [VRBCard classFromCardType:cardJSON[@"type"]];
-            VRBCard *card = [MTLJSONAdapter modelOfClass:cardClass fromJSONDictionary:cardJSON error:nil];
-            [strongSelf.cards addObject:card];
+            if (cardClass) {
+                VRBCard *card = [MTLJSONAdapter modelOfClass:cardClass fromJSONDictionary:cardJSON error:nil];
+                [strongSelf.cards addObject:card];
+            }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);

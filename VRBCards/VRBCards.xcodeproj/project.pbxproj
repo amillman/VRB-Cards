@@ -17,6 +17,8 @@
 		278250851AC29D0F000F2E43 /* VRBPlaceCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 278250841AC29D0F000F2E43 /* VRBPlaceCard.m */; };
 		278250881AC29D91000F2E43 /* VRBMovieCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 278250871AC29D91000F2E43 /* VRBMovieCard.m */; };
 		2782508B1AC29DD2000F2E43 /* VRBMusicCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782508A1AC29DD2000F2E43 /* VRBMusicCard.m */; };
+		2782508F1AC36708000F2E43 /* VRBCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2782508E1AC36708000F2E43 /* VRBCardTableViewCell.m */; };
+		278250921AC36A32000F2E43 /* VRBCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 278250911AC36A32000F2E43 /* VRBCardView.m */; };
 		A0DA67F32DF22636EB2DD9C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A49040735A64E2B8EC7391A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,10 @@
 		278250891AC29DD2000F2E43 /* VRBMusicCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBMusicCard.h; sourceTree = "<group>"; };
 		2782508A1AC29DD2000F2E43 /* VRBMusicCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBMusicCard.m; sourceTree = "<group>"; };
 		2782508C1AC2AFF6000F2E43 /* VRBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRBConstants.h; sourceTree = "<group>"; };
+		2782508D1AC36708000F2E43 /* VRBCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBCardTableViewCell.h; sourceTree = "<group>"; };
+		2782508E1AC36708000F2E43 /* VRBCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBCardTableViewCell.m; sourceTree = "<group>"; };
+		278250901AC36A32000F2E43 /* VRBCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBCardView.h; sourceTree = "<group>"; };
+		278250911AC36A32000F2E43 /* VRBCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBCardView.m; sourceTree = "<group>"; };
 		6A49040735A64E2B8EC7391A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA877D925E67AF1C74E47E04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4E910FD6FE55162B1C4C69E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +129,10 @@
 				278250871AC29D91000F2E43 /* VRBMovieCard.m */,
 				278250891AC29DD2000F2E43 /* VRBMusicCard.h */,
 				2782508A1AC29DD2000F2E43 /* VRBMusicCard.m */,
+				2782508D1AC36708000F2E43 /* VRBCardTableViewCell.h */,
+				2782508E1AC36708000F2E43 /* VRBCardTableViewCell.m */,
+				278250901AC36A32000F2E43 /* VRBCardView.h */,
+				278250911AC36A32000F2E43 /* VRBCardView.m */,
 				2782508C1AC2AFF6000F2E43 /* VRBConstants.h */,
 				278250641AC28947000F2E43 /* Images.xcassets */,
 				278250571AC28947000F2E43 /* Supporting Files */,
@@ -300,7 +310,9 @@
 				278250881AC29D91000F2E43 /* VRBMovieCard.m in Sources */,
 				278250821AC29A0A000F2E43 /* VRBCard.m in Sources */,
 				278250601AC28947000F2E43 /* VRBMainViewController.m in Sources */,
+				2782508F1AC36708000F2E43 /* VRBCardTableViewCell.m in Sources */,
 				2782507F1AC29461000F2E43 /* VRBMainView.m in Sources */,
+				278250921AC36A32000F2E43 /* VRBCardView.m in Sources */,
 				2782505D1AC28947000F2E43 /* VRBAppDelegate.m in Sources */,
 				278250851AC29D0F000F2E43 /* VRBPlaceCard.m in Sources */,
 				2782508B1AC29DD2000F2E43 /* VRBMusicCard.m in Sources */,
