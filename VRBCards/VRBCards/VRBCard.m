@@ -11,7 +11,7 @@
 @implementation VRBCard
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
+    return nil;
 }
 
 + (Class)classFromCardType:(NSString *)cardType {
