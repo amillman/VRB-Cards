@@ -12,8 +12,9 @@
 #import "UIImageView+AFNetworking.h"
 #import "VRBCard.h"
 #import "VRBConstants.h"
+#import "VRBCardTableViewCell.h"
 
-@interface VRBMainViewController ()
+@interface VRBMainViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) VRBMainView *view;
 @property (nonatomic) NSMutableArray *cards;
 @end
@@ -22,12 +23,16 @@
 
 static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewpark/0a407d7c681b833d6b49/raw/5f3936dd524d32ed03953f616e19740bba920bcd/gistfile1.js";
 
+#pragma mark - View LifeCycle
+
 - (void)loadView {
     self.view = [[VRBMainView alloc] init];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.cardsTableView.delegate = self;
+    self.view.cardsTableView.dataSource = self;
     [self _getCards];
 }
 
@@ -51,9 +56,37 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
                 [strongSelf.cards addObject:card];
             }
         }
+        [self.view.cardsTableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
+}
+
+
+#pragma mark - UITableView Delegate / DataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.cards count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 105.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    VRBCard *card = self.cards[indexPath.row];
+    VRBCardTableViewCell *cellView = [tableView dequeueReusableCellWithIdentifier:card.type];
+    
+    if (!cellView) {
+        cellView = [[VRBCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                reuseIdentifier:card.type];
+    }
+    
+    [cellView configureWithCard:card];
+    
+    return cellView;
+    
 }
 
 @end

@@ -9,7 +9,6 @@
 #import "VRBCardView.h"
 #import "VRBConstants.h"
 #import "Masonry.h"
-#import "VRBCard.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface VRBCardView ()
@@ -23,6 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         [self _configureShadow];
         [self _createSubviews];
         [self setNeedsUpdateConstraints];

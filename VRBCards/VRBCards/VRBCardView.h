@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "VRBConstants.h"
+#import "VRBCard.h"
 
 @interface VRBCardView : UIView
 
+- (void)configureWithCard:(VRBCard *)card;
 
 /**
  Returns the Class of a cardView based on its NSString type.

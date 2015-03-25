@@ -27,6 +27,8 @@
     _cardsTableView = [[UITableView alloc] init];
     _cardsTableView.separatorColor = [UIColor clearColor];
     _cardsTableView.tableHeaderView = [[UIView alloc] init];
+    _cardsTableView.backgroundColor = [UIColor clearColor];
+    [self addSubview:_cardsTableView];
     
 }
 

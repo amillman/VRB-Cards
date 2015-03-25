@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VRBCard.h"
 
 @interface VRBCardTableViewCell : UITableViewCell
-
+- (void)configureWithCard:(VRBCard *)card;
 @end

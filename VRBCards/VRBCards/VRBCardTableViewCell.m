@@ -46,11 +46,17 @@
     [_cardView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(STANDARD_MARGIN / 2));
         make.leading.equalTo(@(STANDARD_MARGIN));
-        make.trailing.equalTo(@(STANDARD_MARGIN));
-        make.bottom.equalTo(@(STANDARD_MARGIN / 2));
+        make.trailing.equalTo(@(-STANDARD_MARGIN));
+        make.bottom.equalTo(@(-STANDARD_MARGIN / 2));
     }];
     
     [super updateConstraints];
+}
+
+# pragma mark - Public Methods
+
+- (void)configureWithCard:(VRBCard *)card {
+    [_cardView configureWithCard:card];
 }
 
 @end
