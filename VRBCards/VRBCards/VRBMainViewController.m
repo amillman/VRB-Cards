@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "VRBCard.h"
+#import "VRBConstants.h"
 
 @interface VRBMainViewController ()
 @property (nonatomic) VRBMainView *view;
@@ -18,6 +19,8 @@
 @end
 
 @implementation VRBMainViewController
+
+static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewpark/0a407d7c681b833d6b49/raw/5f3936dd524d32ed03953f616e19740bba920bcd/gistfile1.js";
 
 - (void)loadView {
     self.view = [[VRBMainView alloc] init];
@@ -29,7 +32,6 @@
 }
 
 - (void)_getCards {
-    NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewpark/0a407d7c681b833d6b49/raw/5f3936dd524d32ed03953f616e19740bba920bcd/gistfile1.js";
     
     // Do this to accept the specific given link
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

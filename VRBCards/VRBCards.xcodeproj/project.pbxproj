@@ -52,6 +52,7 @@
 		278250871AC29D91000F2E43 /* VRBMovieCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBMovieCard.m; sourceTree = "<group>"; };
 		278250891AC29DD2000F2E43 /* VRBMusicCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRBMusicCard.h; sourceTree = "<group>"; };
 		2782508A1AC29DD2000F2E43 /* VRBMusicCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRBMusicCard.m; sourceTree = "<group>"; };
+		2782508C1AC2AFF6000F2E43 /* VRBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRBConstants.h; sourceTree = "<group>"; };
 		6A49040735A64E2B8EC7391A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA877D925E67AF1C74E47E04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4E910FD6FE55162B1C4C69E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 				278250871AC29D91000F2E43 /* VRBMovieCard.m */,
 				278250891AC29DD2000F2E43 /* VRBMusicCard.h */,
 				2782508A1AC29DD2000F2E43 /* VRBMusicCard.m */,
+				2782508C1AC2AFF6000F2E43 /* VRBConstants.h */,
 				278250641AC28947000F2E43 /* Images.xcassets */,
 				278250571AC28947000F2E43 /* Supporting Files */,
 			);

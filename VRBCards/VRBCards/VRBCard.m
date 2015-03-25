@@ -7,6 +7,7 @@
 //
 
 #import "VRBCard.h"
+#import "VRBConstants.h"
 
 @implementation VRBCard
 
@@ -16,7 +17,6 @@
 
 + (Class)classFromCardType:(NSString *)cardType {
     cardType = [[cardType capitalizedString] stringByAppendingString:@"Card"];
-    NSString *CLASS_PREFIX = @"VRB";
     NSString *classNameString = [CLASS_PREFIX stringByAppendingString:cardType];
     return NSClassFromString(classNameString);
 }
