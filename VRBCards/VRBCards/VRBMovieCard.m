@@ -10,4 +10,8 @@
 
 @implementation VRBMovieCard
 
++ (NSValueTransformer *)movieExtraImageURLJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
 @end

@@ -15,6 +15,10 @@
     return nil;
 }
 
++ (NSValueTransformer *)imageURLJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
 + (Class)classFromCardType:(NSString *)cardType {
     cardType = [[cardType capitalizedString] stringByAppendingString:@"Card"];
     NSString *classNameString = [CLASS_PREFIX stringByAppendingString:cardType];

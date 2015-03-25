@@ -10,4 +10,8 @@
 
 @implementation VRBMusicCard
 
++ (NSValueTransformer *)musicVideoURLJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
 @end
