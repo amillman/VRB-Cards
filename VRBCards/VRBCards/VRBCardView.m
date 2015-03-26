@@ -31,7 +31,7 @@
 }
 
 - (void)dealloc {
-    [_thumbnailImageView cancelImageRequestOperation];
+    [self cancelImageRequests];
 }
 
 - (void)_configureShadow {
@@ -85,7 +85,7 @@
     [super updateConstraints];
 }
 
-#pragma mark - View Config From Model
+#pragma mark - Public Methods
 
 - (void)configureWithCard:(VRBCard *)card {
     _titleLabel.text = card.title;
@@ -93,7 +93,10 @@
     [_thumbnailImageView setImageWithURL:card.imageURL];
 }
 
-#pragma mark - Public Methods
+- (void)cancelImageRequests {
+    [_thumbnailImageView cancelImageRequestOperation];
+    _thumbnailImageView.image = nil;
+}
 
 + (Class)viewClassFromCardType:(NSString *)cardType {
     cardType = [[cardType capitalizedString] stringByAppendingString:@"CardView"];

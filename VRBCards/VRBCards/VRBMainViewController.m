@@ -51,10 +51,18 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
         
         for (NSDictionary *cardJSON in cardsArrayJSON) {
             Class cardClass = [VRBCard classFromCardType:cardJSON[@"type"]];
+            VRBCard *card;
+            
+            // Instantiate the specific card based on its cardType, which
+            // determine's the card's class. If the specific card
+            // type is not valid (e.g. API update), then instantiate a general
+            // card and only store the general info (e.g. title, imageURL).
             if (cardClass) {
-                VRBCard *card = [MTLJSONAdapter modelOfClass:cardClass fromJSONDictionary:cardJSON error:nil];
-                [strongSelf.cards addObject:card];
+                card = [MTLJSONAdapter modelOfClass:cardClass fromJSONDictionary:cardJSON error:nil];
+            } else {
+                card = [MTLJSONAdapter modelOfClass:[VRBCard class] fromJSONDictionary:cardJSON error:nil];
             }
+            [strongSelf.cards addObject:card];
         }
         [self.view.cardsTableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -77,16 +85,15 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
     
     VRBCard *card = self.cards[indexPath.row];
     VRBCardTableViewCell *cellView = [tableView dequeueReusableCellWithIdentifier:card.type];
+    [cellView cancelImageRequests];
     
     if (!cellView) {
         cellView = [[VRBCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                 reuseIdentifier:card.type];
     }
-    
     [cellView configureWithCard:card];
     
     return cellView;
-    
 }
 
 @end

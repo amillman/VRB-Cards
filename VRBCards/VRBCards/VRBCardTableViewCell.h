@@ -11,4 +11,5 @@
 
 @interface VRBCardTableViewCell : UITableViewCell
 - (void)configureWithCard:(VRBCard *)card;
+- (void)cancelImageRequests;
 @end

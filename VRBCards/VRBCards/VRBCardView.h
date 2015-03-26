@@ -13,6 +13,7 @@
 @interface VRBCardView : UIView
 
 - (void)configureWithCard:(VRBCard *)card;
+- (void)cancelImageRequests;
 
 /**
  Returns the Class of a cardView based on its NSString type.

@@ -60,4 +60,8 @@
     [_cardView configureWithCard:card];
 }
 
+- (void)cancelImageRequests {
+    [_cardView cancelImageRequests];
+}
+
 @end
