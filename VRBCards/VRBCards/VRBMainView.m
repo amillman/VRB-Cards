@@ -42,9 +42,9 @@
     _navBarView = [[UIView alloc] init];
     _navBarView.backgroundColor = [UIColor whiteColor];
     _navBarView.layer.masksToBounds = NO;
-    _navBarView.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-    _navBarView.layer.shadowRadius = 4.0f;
-    _navBarView.layer.shadowOpacity = 0.3f;
+    _navBarView.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    _navBarView.layer.shadowRadius = 1.0f;
+    _navBarView.layer.shadowOpacity = 0.1f;
     [self addSubview:_navBarView];
     
     _latitudeWordLabel = [[UILabel alloc] init];

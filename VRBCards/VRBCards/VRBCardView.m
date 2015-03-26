@@ -17,8 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        [self _configureCardShadow];
-        [self createSubviews];
+        [self _createSubviews];
         [self setNeedsUpdateConstraints];
     }
     return self;
@@ -28,11 +27,24 @@
     [self cancelImageRequests];
 }
 
-- (void)_configureCardShadow {
-    self.layer.masksToBounds = NO;
-    self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-    self.layer.shadowRadius = 2.0f;
-    self.layer.shadowOpacity = 0.2f;
+- (void)_createSubviews {
+    
+    _titleLabel = [[UILabel alloc] init];
+    _titleLabel.font = [UIFont systemFontOfSize:21.0f];
+    _titleLabel.numberOfLines = 2;
+    [self addSubview:_titleLabel];
+    
+    _typeLabel = [[UILabel alloc] init];
+    _typeLabel.font = [UIFont systemFontOfSize:15.0f];
+    _typeLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1];
+    [self addSubview:_typeLabel];
+    
+    _thumbnailImageView = [[UIImageView alloc] init];
+    _thumbnailImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _thumbnailImageView.layer.cornerRadius = 5.0f;
+    _thumbnailImageView.clipsToBounds = YES;
+    [self addSubview:_thumbnailImageView];
+    
 }
 
 - (void)updateConstraints {
@@ -60,26 +72,6 @@
 }
 
 #pragma mark - Public Methods
-
-- (void)createSubviews {
-    
-    _titleLabel = [[UILabel alloc] init];
-    _titleLabel.font = [UIFont systemFontOfSize:21.0f];
-    _titleLabel.numberOfLines = 2;
-    [self addSubview:_titleLabel];
-    
-    _typeLabel = [[UILabel alloc] init];
-    _typeLabel.font = [UIFont systemFontOfSize:15.0f];
-    _typeLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1];
-    [self addSubview:_typeLabel];
-    
-    _thumbnailImageView = [[UIImageView alloc] init];
-    _thumbnailImageView.contentMode = UIViewContentModeScaleAspectFill;
-    _thumbnailImageView.layer.cornerRadius = 5.0f;
-    _thumbnailImageView.clipsToBounds = YES;
-    [self addSubview:_thumbnailImageView];
-    
-}
 
 - (void)configureWithCard:(VRBCard *)card {
     _titleLabel.text = card.title;

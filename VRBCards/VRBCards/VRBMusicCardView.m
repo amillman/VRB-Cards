@@ -21,10 +21,24 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self createSubviews];
+        [self _addSubviews];
         [self setNeedsUpdateConstraints];
     }
     return self;
+}
+
+- (void)_addSubviews {
+    
+    _musicVideoButton = [[UIButton alloc] init];
+    [_musicVideoButton addTarget:self action:@selector(openMusicVideo) forControlEvents:UIControlEventTouchUpInside];
+    [_musicVideoButton setTitle:@"View Music Video" forState:UIControlStateNormal];
+    [_musicVideoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_musicVideoButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.4] forState:UIControlStateHighlighted];
+    _musicVideoButton.titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    _musicVideoButton.backgroundColor = [UIColor colorWithRed:0.90 green:0.30 blue:0.23 alpha:1];
+    _musicVideoButton.layer.cornerRadius = 3.0f;
+    _musicVideoButton.clipsToBounds = YES;
+    [self addSubview:_musicVideoButton];
 }
 
 - (void)updateConstraints {
@@ -46,21 +60,6 @@
 }
 
 #pragma mark - Public Methods
-
-- (void)createSubviews {
-    [super createSubviews];
-    
-    _musicVideoButton = [[UIButton alloc] init];
-    [_musicVideoButton addTarget:self action:@selector(openMusicVideo) forControlEvents:UIControlEventTouchUpInside];
-    [_musicVideoButton setTitle:@"View Music Video" forState:UIControlStateNormal];
-    [_musicVideoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_musicVideoButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.4] forState:UIControlStateHighlighted];
-    _musicVideoButton.titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
-    _musicVideoButton.backgroundColor = [UIColor colorWithRed:0.90 green:0.30 blue:0.23 alpha:1];
-    _musicVideoButton.layer.cornerRadius = 3.0f;
-    _musicVideoButton.clipsToBounds = YES;
-    [self addSubview:_musicVideoButton];
-}
 
 - (void)configureWithCard:(VRBCard *)card {
     [super configureWithCard:card];

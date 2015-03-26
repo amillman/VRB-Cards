@@ -18,10 +18,18 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self createSubviews];
+        [self _addSubviews];
         [self setNeedsUpdateConstraints];
     }
     return self;
+}
+
+- (void)_addSubviews {
+    
+    _categoryLabel = [[UILabel alloc] init];
+    _categoryLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    _categoryLabel.textColor = [UIColor colorWithWhite:0.3 alpha:1];
+    [self addSubview:_categoryLabel];
 }
 
 - (void)updateConstraints {
@@ -36,15 +44,6 @@
 }
 
 #pragma mark - Public Methods
-
-- (void)createSubviews {
-    [super createSubviews];
-    
-    _categoryLabel = [[UILabel alloc] init];
-    _categoryLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    _categoryLabel.textColor = [UIColor colorWithWhite:0.3 alpha:1];
-    [self addSubview:_categoryLabel];
-}
 
 - (void)configureWithCard:(VRBCard *)card {
     [super configureWithCard:card];

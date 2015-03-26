@@ -18,10 +18,19 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self createSubviews];
+        [self _addSubviews];
         [self setNeedsUpdateConstraints];
     }
     return self;
+}
+
+- (void)_addSubviews {
+    
+    _extraImageView = [[UIImageView alloc] init];
+    _extraImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _extraImageView.layer.cornerRadius = 5.0f;
+    _extraImageView.clipsToBounds = YES;
+    [self addSubview:_extraImageView];
 }
 
 - (void)updateConstraints {
@@ -37,16 +46,6 @@
 }
 
 #pragma mark - Public Methods
-
-- (void)createSubviews {
-    [super createSubviews];
-    
-    _extraImageView = [[UIImageView alloc] init];
-    _extraImageView.contentMode = UIViewContentModeScaleAspectFill;
-    _extraImageView.layer.cornerRadius = 5.0f;
-    _extraImageView.clipsToBounds = YES;
-    [self addSubview:_extraImageView];
-}
 
 - (void)configureWithCard:(VRBCard *)card {
     [super configureWithCard:card];
