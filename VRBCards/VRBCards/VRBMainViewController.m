@@ -42,9 +42,15 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
     if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
+    
+    [self _getLocationAndGetCards];
+}
+
+- (void)_getLocationAndGetCards {
     [self.locationManager startUpdatingLocation];
 }
 
+// Called after user authorizes location-enabled services
 - (void)_getCards {
     
     // Do this to accept the specific given link
