@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 
-/** ================ ABSTRACT CLASS ================ **/
-
 @interface VRBCard : MTLModel <MTLJSONSerializing>
 
 @property (copy, nonatomic) NSString *title;
