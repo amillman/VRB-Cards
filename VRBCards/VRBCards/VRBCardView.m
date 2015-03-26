@@ -36,19 +36,21 @@
 
 - (void)_configureShadow {
     self.layer.masksToBounds = NO;
-    self.layer.shadowOffset = CGSizeMake(0.0f, -2.0f);
-    self.layer.shadowRadius = 5.0f;
-    self.layer.shadowOpacity = 0.3f;
+    self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+    self.layer.shadowRadius = 2.0f;
+    self.layer.shadowOpacity = 0.2f;
 }
 
 - (void)_createSubviews {
     
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.font = [UIFont systemFontOfSize:18.0f];
+    _titleLabel.font = [UIFont systemFontOfSize:21.0f];
+    _titleLabel.numberOfLines = 2;
     [self addSubview:_titleLabel];
     
     _typeLabel = [[UILabel alloc] init];
-    _typeLabel.font = [UIFont systemFontOfSize:12.0f];
+    _typeLabel.font = [UIFont systemFontOfSize:15.0f];
+    _typeLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1];
     [self addSubview:_typeLabel];
     
     _thumbnailImageView = [[UIImageView alloc] init];
@@ -62,24 +64,22 @@
 - (void)updateConstraints {
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(STANDARD_MARGIN));
-        make.leading.equalTo(@(STANDARD_MARGIN));
-        make.trailing.equalTo(@(STANDARD_MARGIN));
-        make.height.equalTo(@20);
+        make.top.equalTo(_thumbnailImageView.mas_top);
+        make.leading.equalTo(_thumbnailImageView.mas_trailing).with.offset(STANDARD_MARGIN);
+        make.trailing.equalTo(@(-STANDARD_MARGIN));
     }];
     
     [_typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_titleLabel.mas_bottom);
         make.leading.equalTo(_titleLabel.mas_leading);
         make.trailing.equalTo(_titleLabel.mas_trailing);
-        make.height.equalTo(@15);
     }];
     
     [_thumbnailImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_typeLabel.mas_bottom);
-        make.leading.equalTo(_titleLabel.mas_leading);
-        make.height.equalTo(@40);
-        make.width.equalTo(@40);
+        make.top.equalTo(@(STANDARD_MARGIN));
+        make.leading.equalTo(@(STANDARD_MARGIN));
+        make.height.equalTo(@120);
+        make.width.equalTo(@120);
     }];
     
     [super updateConstraints];

@@ -15,7 +15,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
+        self.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
         [self _createSubviews];
         [self setNeedsUpdateConstraints];
     }

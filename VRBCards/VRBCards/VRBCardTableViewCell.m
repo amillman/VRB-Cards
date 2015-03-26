@@ -20,6 +20,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
         [self _createSubviewsWithReuseIdentifier:reuseIdentifier];
         [self setNeedsUpdateConstraints];
     }
