@@ -12,6 +12,11 @@
 
 @interface VRBCardView : UIView
 
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *typeLabel;
+@property (nonatomic) UIImageView *thumbnailImageView;
+
+- (void)createSubviews;
 - (void)configureWithCard:(VRBCard *)card;
 - (void)cancelImageRequests;
 
