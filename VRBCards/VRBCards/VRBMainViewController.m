@@ -39,10 +39,10 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self.locationManager requestWhenInUseAuthorization];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
     [self.locationManager startUpdatingLocation];
-    
-    [self _getCards];
 }
 
 - (void)_getCards {
@@ -74,8 +74,15 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
             [strongSelf.cards addObject:card];
         }
         [self.view.cardsTableView reloadData];
+        [self.view hideLoadingViews];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle:@"Error"
+                                   message:@"Could not get cards"
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [errorAlert show];
     }];
 }
 
@@ -106,6 +113,13 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
 }
 
 #pragma mark - CLLocationManager Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.view showLoadingViews];
+        [self _getCards];
+    }
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     // Most recent location

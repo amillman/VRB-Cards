@@ -16,6 +16,7 @@
 @property (nonatomic) UILabel *longitudeWordLabel;
 @property (nonatomic) UILabel *latitudeNumberLabel;
 @property (nonatomic) UILabel *longitudeNumberLabel;
+@property (nonatomic) UIActivityIndicatorView *loadingView;
 @end
 
 @implementation VRBMainView
@@ -34,7 +35,6 @@
     
     _cardsTableView = [[UITableView alloc] init];
     _cardsTableView.separatorColor = [UIColor clearColor];
-    _cardsTableView.tableHeaderView = [[UIView alloc] init];
     _cardsTableView.backgroundColor = [UIColor clearColor];
     [self addSubview:_cardsTableView];
     
@@ -60,15 +60,18 @@
     
     _latitudeNumberLabel = [[UILabel alloc] init];
     _latitudeNumberLabel.font = [UIFont systemFontOfSize:16.0f];
-    _latitudeNumberLabel.text = @"Getting...";
+    _latitudeNumberLabel.text = @"--";
     _latitudeNumberLabel.textAlignment = NSTextAlignmentCenter;
     [_navBarView addSubview:_latitudeNumberLabel];
     
     _longitudeNumberLabel = [[UILabel alloc] init];
     _longitudeNumberLabel.font = [UIFont systemFontOfSize:16.0f];
-    _longitudeNumberLabel.text = @"Getting...";
+    _longitudeNumberLabel.text = @"--";
     _longitudeNumberLabel.textAlignment = NSTextAlignmentCenter;
     [_navBarView addSubview:_longitudeNumberLabel];
+    
+    _loadingView =  [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self addSubview:_loadingView];
 }
 
 - (void)updateConstraints {
@@ -113,11 +116,25 @@
         make.height.equalTo(@(20));
     }];
     
+    [_loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_navBarView.mas_bottom).with.offset(STANDARD_MARGIN * 2);
+        make.centerX.equalTo(self.mas_centerX);
+    }];
     
     [super updateConstraints];
 }
 
 #pragma mark - Public Methods
+
+- (void)showLoadingViews {
+    _latitudeNumberLabel.text = @"Getting...";
+    _longitudeNumberLabel.text = @"Getting...";
+    [_loadingView startAnimating];
+}
+
+- (void)hideLoadingViews {
+    [_loadingView stopAnimating];
+}
 
 - (void)configureWithLocation:(CLLocation *)location {
     _latitudeNumberLabel.text = [NSString stringWithFormat:@"%.5f", location.coordinate.latitude];

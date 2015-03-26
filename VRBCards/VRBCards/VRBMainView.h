@@ -11,5 +11,7 @@
 
 @interface VRBMainView : UIView
 @property (nonatomic) UITableView *cardsTableView;
+- (void)showLoadingViews;
+- (void)hideLoadingViews;
 - (void)configureWithLocation:(CLLocation *)location;
 @end
