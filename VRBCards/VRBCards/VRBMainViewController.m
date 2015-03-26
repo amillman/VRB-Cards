@@ -13,10 +13,12 @@
 #import "VRBCard.h"
 #import "VRBConstants.h"
 #import "VRBCardTableViewCell.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface VRBMainViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface VRBMainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 @property (nonatomic) VRBMainView *view;
 @property (nonatomic) NSMutableArray *cards;
+@property (nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation VRBMainViewController
@@ -31,8 +33,15 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.cardsTableView.delegate = self;
     self.view.cardsTableView.dataSource = self;
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+    
     [self _getCards];
 }
 
@@ -94,6 +103,25 @@ static NSString *REQUEST_URL = @"https://gist.githubusercontent.com/helloandrewp
     [cellView configureWithCard:card];
     
     return cellView;
+}
+
+#pragma mark - CLLocationManager Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    // Most recent location
+    CLLocation *userLocation = [locations lastObject];
+    [self.locationManager stopUpdatingLocation];
+    [self.view configureWithLocation:userLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error"
+                               message:@"Failed to Get Your Location"
+                               delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil];
+    [errorAlert show];
 }
 
 @end

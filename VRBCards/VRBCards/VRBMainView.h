@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface VRBMainView : UIView
 @property (nonatomic) UITableView *cardsTableView;
+- (void)configureWithLocation:(CLLocation *)location;
 @end

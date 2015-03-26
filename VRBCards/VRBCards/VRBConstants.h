@@ -13,3 +13,5 @@ static const NSString *CLASS_PREFIX = @"VRB";
 static const float NAVBAR_HEIGHT = 64.0f;
 
 static const float STANDARD_MARGIN = 10.0f;
+
+static const float TIGHT_MARGIN = 5.0f;

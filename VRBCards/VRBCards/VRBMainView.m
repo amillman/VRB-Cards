@@ -10,6 +10,14 @@
 #import "Masonry.h"
 #import "VRBConstants.h"
 
+@interface VRBMainView ()
+@property (nonatomic) UIView *navBarView;
+@property (nonatomic) UILabel *latitudeWordLabel;
+@property (nonatomic) UILabel *longitudeWordLabel;
+@property (nonatomic) UILabel *latitudeNumberLabel;
+@property (nonatomic) UILabel *longitudeNumberLabel;
+@end
+
 @implementation VRBMainView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -30,6 +38,37 @@
     _cardsTableView.backgroundColor = [UIColor clearColor];
     [self addSubview:_cardsTableView];
     
+    _navBarView = [[UIView alloc] init];
+    _navBarView.backgroundColor = [UIColor whiteColor];
+    _navBarView.layer.masksToBounds = NO;
+    _navBarView.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+    _navBarView.layer.shadowRadius = 4.0f;
+    _navBarView.layer.shadowOpacity = 0.3f;
+    [self addSubview:_navBarView];
+    
+    _latitudeWordLabel = [[UILabel alloc] init];
+    _latitudeWordLabel.font = [UIFont systemFontOfSize:10.0f];
+    _latitudeWordLabel.text = @"Latitude";
+    _latitudeWordLabel.textAlignment = NSTextAlignmentCenter;
+    [_navBarView addSubview:_latitudeWordLabel];
+    
+    _longitudeWordLabel = [[UILabel alloc] init];
+    _longitudeWordLabel.font = [UIFont systemFontOfSize:10.0f];
+    _longitudeWordLabel.text = @"Longitude";
+    _longitudeWordLabel.textAlignment = NSTextAlignmentCenter;
+    [_navBarView addSubview:_longitudeWordLabel];
+    
+    _latitudeNumberLabel = [[UILabel alloc] init];
+    _latitudeNumberLabel.font = [UIFont systemFontOfSize:16.0f];
+    _latitudeNumberLabel.text = @"Getting...";
+    _latitudeNumberLabel.textAlignment = NSTextAlignmentCenter;
+    [_navBarView addSubview:_latitudeNumberLabel];
+    
+    _longitudeNumberLabel = [[UILabel alloc] init];
+    _longitudeNumberLabel.font = [UIFont systemFontOfSize:16.0f];
+    _longitudeNumberLabel.text = @"Getting...";
+    _longitudeNumberLabel.textAlignment = NSTextAlignmentCenter;
+    [_navBarView addSubview:_longitudeNumberLabel];
 }
 
 - (void)updateConstraints {
@@ -41,7 +80,48 @@
         make.bottom.equalTo(@0);
     }];
     
+    [_navBarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.leading.equalTo(@0);
+        make.trailing.equalTo(@0);
+        make.height.equalTo(@(NAVBAR_HEIGHT));
+    }];
+    
+    [_latitudeWordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_latitudeNumberLabel.mas_leading);
+        make.trailing.equalTo(_latitudeNumberLabel.mas_trailing);
+        make.bottom.equalTo(_latitudeNumberLabel.mas_top);
+    }];
+    
+    [_longitudeWordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_longitudeNumberLabel.mas_leading);
+        make.trailing.equalTo(_longitudeNumberLabel.mas_trailing);
+        make.bottom.equalTo(_longitudeNumberLabel.mas_top);
+    }];
+    
+    [_latitudeNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(@(TIGHT_MARGIN));
+        make.trailing.equalTo(_navBarView.mas_centerX).with.offset(-TIGHT_MARGIN);
+        make.bottom.equalTo(@(-TIGHT_MARGIN));
+        make.height.equalTo(@(20));
+    }];
+    
+    [_longitudeNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_navBarView.mas_centerX).with.offset(TIGHT_MARGIN);
+        make.trailing.equalTo(@(TIGHT_MARGIN));
+        make.bottom.equalTo(@(-TIGHT_MARGIN));
+        make.height.equalTo(@(20));
+    }];
+    
+    
     [super updateConstraints];
+}
+
+#pragma mark - Public Methods
+
+- (void)configureWithLocation:(CLLocation *)location {
+    _latitudeNumberLabel.text = [NSString stringWithFormat:@"%.5f", location.coordinate.latitude];
+    _longitudeNumberLabel.text = [NSString stringWithFormat:@"%.5f", location.coordinate.longitude];
 }
 
 @end
