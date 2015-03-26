@@ -36,6 +36,7 @@
     _cardsTableView = [[UITableView alloc] init];
     _cardsTableView.separatorColor = [UIColor clearColor];
     _cardsTableView.backgroundColor = [UIColor clearColor];
+    _cardsTableView.allowsSelection = NO;
     [self addSubview:_cardsTableView];
     
     _navBarView = [[UIView alloc] init];
